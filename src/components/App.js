@@ -1,13 +1,24 @@
-import React from 'react';
-import { Switch } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Route, Switch }   from 'react-router-dom';
+import './App.css';
 
-function App() {
+import Bar      from './Bar';
+import TaskAdd  from '../containers/TaskAdd';
+import TaskGrid from '../containers/TaskGrid';
+import TaskList from '../containers/TaskList';
+
+function App(props) {
   return (
-    <main className="App">
-      <Switch>
-
-      </Switch>
-    </main>
+    <Fragment>
+      <Bar />
+      <main className="App">
+        <Switch>
+          <Route path='/'     component={TaskGrid} exact />
+          <Route path='/list' component={TaskList} />
+          <Route path='/add'  component={TaskAdd} />
+        </Switch>
+      </main>
+    </Fragment>
   );
 }
 

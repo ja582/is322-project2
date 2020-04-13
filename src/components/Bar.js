@@ -1,11 +1,15 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import React    from 'react';
+import { Link } from "react-router-dom";
+import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
 function Bar() {
   return (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6">Task Board</Typography>
+        <Button to="/grid" component={Link} color="inherit">Task Grid</Button>
+        <Button to="/list" component={Link} color="inherit">Task List</Button>
+        <Button to="/add"  component={Link} color="inherit">Add Task</Button>
       </Toolbar>
     </AppBar>
   );
