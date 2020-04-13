@@ -4,7 +4,7 @@ import { BrowserRouter }   from 'react-router-dom';
 import { Provider }        from 'react-redux';
 import { createStore }     from 'redux';
 import rootReducer         from './reducers';
-import App                 from './components/App';
+import App                 from './App';
 import * as serviceWorker  from './serviceWorker';
 
 const store = createStore(rootReducer);
