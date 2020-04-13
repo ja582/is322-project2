@@ -7,7 +7,7 @@ function Bar() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6">Task Board</Typography>
-        <Button to="/grid" component={Link} color="inherit">Task Grid</Button>
+        <Button to="/"     component={Link} color="inherit">Task Grid</Button>
         <Button to="/list" component={Link} color="inherit">Task List</Button>
         <Button to="/add"  component={Link} color="inherit">Add Task</Button>
       </Toolbar>
