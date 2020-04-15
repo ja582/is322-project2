@@ -12,3 +12,7 @@ export const setTask = ({ id, status }) => ({
 export const addTask = ({ title, status }) => ({
   type: 'ADD_TASK', title, status
 });
+
+export const addTasks = ({ tasks }) => ({
+  type: 'ADD_TASKS', tasks
+});
