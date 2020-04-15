@@ -1,25 +1,23 @@
 import React from 'react';
+import Notification from './Notification';
 
-import { Snackbar } from '@material-ui/core';
 
-function TaskGrid({ tasks, location }) {
+function TaskGrid({ tasks, location: { state } }) {
+  const [open, setOpen] = React.useState(state ? state.submit : false);
+
   return (
     <main className="TaskGrid">
       <span>Task Grid</span>
       <ul>
         {tasks.map((task) => (
-          <li>{task.id}, {task.title}, {task.status}</li>
+          <li key={task.id}>{task.id}, {task.title}, {task.status}</li>
         ))}
       </ul>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        open={location.state ? location.state.submit : false}
-        autoHideDuration={5000}
-        message="New task added!"
+      <Notification
+        text='New task added!'
+        open={open}
+        onClose={() => setOpen(false)}
       />
     </main>
   );
