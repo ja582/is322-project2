@@ -8,6 +8,8 @@ import TaskGrid from './containers/TaskGrid';
 import TaskList from './containers/TaskList';
 
 function App() {
+  document.title = 'Taskboard';
+
   return (
     <Fragment>
       <Bar />
