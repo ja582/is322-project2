@@ -1,26 +1,50 @@
 import React from 'react';
+import { Grid } from '@material-ui/core';
+
 import Notification from './Notification';
+import TaskCard from './TaskCard';
 
 
 function TaskGrid({ tasks, location: { state } }) {
-  const [open, setOpen] = React.useState(state ? state.submit : false);
+    const [open, setOpen] = React.useState(state ? state.submit : false);
 
-  return (
-    <main className="TaskGrid">
-      <span>Task Grid</span>
-      <ul>
-        {tasks.map((task) => (
-          <li key={task.id}>{task.id}, {task.title}, {task.status}</li>
-        ))}
-      </ul>
+    const toDoTasks       = tasks.filter((task) => task.status === 'toDo');
+    const inProgressTasks = tasks.filter((task) => task.status === 'inProgress');
+    const reviewTasks     = tasks.filter((task) => task.status === 'review');
+    const doneTasks       = tasks.filter((task) => task.status === 'done');
 
-      <Notification
-        text='New task added!'
-        open={open}
-        onClose={() => setOpen(false)}
-      />
-    </main>
-  );
+    return (
+        <main className="TaskGrid">
+            <Grid container spacing={6}>
+                <Grid item xs>
+                    {toDoTasks.map((task) => (
+                        <TaskCard {...task} />
+                    ))}
+                </Grid>
+                <Grid item xs>
+                    {inProgressTasks.map((task) => (
+                        <TaskCard {...task} />
+                    ))}
+                </Grid>
+                <Grid item xs>
+                    {reviewTasks.map((task) => (
+                        <TaskCard {...task} />
+                    ))}
+                </Grid>
+                <Grid item xs>
+                    {doneTasks.map((task) => (
+                        <TaskCard {...task} />
+                    ))}
+                </Grid>
+            </Grid>
+
+            <Notification
+                text='New task added!'
+                open={open}
+                onClose={() => setOpen(false)}
+            />
+        </main>
+    );
 }
 
 export default TaskGrid;
