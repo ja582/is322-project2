@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import {Container, Grid} from '@material-ui/core';
 
 import Notification from './Notification';
 import TaskCard from '../containers/TaskCard';
@@ -38,6 +38,7 @@ function TaskGrid({ tasks, location: { state } }) {
 
   return (
     <main className="TaskGrid">
+        <Container fixed>
       <Grid container spacing={2}>
         <Grid item xs>
             <Paper className={classes.paper}>
@@ -68,7 +69,7 @@ function TaskGrid({ tasks, location: { state } }) {
             </Paper>
         </Grid>
       </Grid>
-
+        </Container>
       <Notification
         text='New task added!'
         open={open}
