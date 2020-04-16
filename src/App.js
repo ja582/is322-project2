@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { Route, Switch }   from 'react-router-dom';
+import { connect }         from 'react-redux';
 import './App.css';
 
 import Bar      from './components/Bar';
@@ -7,8 +8,19 @@ import TaskAdd  from './containers/TaskAdd';
 import TaskGrid from './containers/TaskGrid';
 import TaskList from './containers/TaskList';
 
-function App() {
+import { addTasks } from './actions';
+
+
+function App({ addTasks }) {
   document.title = 'Taskboard';
+
+  // Fetch from "API"
+  fetch('https://raw.githubusercontent.com/ja582/is322-project2/dev/src/db.json')
+    .then((response) => {
+      return response.json();
+    }).then((data) => {
+      addTasks(data);
+    });
 
   return (
     <Fragment>
@@ -24,4 +36,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  addTasks: (tasks) => {
+    dispatch(addTasks({ tasks }));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
