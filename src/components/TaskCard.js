@@ -56,6 +56,9 @@ function TaskCard({ id, title, status, setTask }) {
         <CardContent>
           {title}
         </CardContent>
+        <CardContent>
+          {status}
+        </CardContent>
         {actions &&
          <CardActions>
            {actions}
