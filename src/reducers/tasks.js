@@ -1,5 +1,5 @@
 const initialState = {
-  nextId : 8,
+  nextId : 0,
   tasks  : [],
 };
 
@@ -11,14 +11,14 @@ export default (state = initialState, action) => {
      */
     case 'ADD_TASKS':
       const newTasks = action.tasks.map((task) => ({
-        id     : state.nextId,
+        id     : state.nextId++,
         title  : task.title,
         status : task.status,
         type   : task.type
       }));
       return Object.assign({}, state, {
         tasks  : [ ...state.tasks, ...newTasks],
-        nextId : state.nextId + 1
+        nextId : state.nextId
       });
 
     /**
