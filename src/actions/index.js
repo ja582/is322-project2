@@ -1,7 +1,7 @@
 export const TaskStatuses = {
-  toDo       : 'To Do',
-  inProgress : 'In Progress',
-  review     : 'Review',
+  toDo       : 'To-Do',
+  inProgress : 'In-Progress',
+  inReview   : 'In-Review',
   done       : 'Done',
 };
 
