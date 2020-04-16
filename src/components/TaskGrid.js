@@ -20,21 +20,25 @@ function TaskGrid({ tasks, location: { state } }) {
         <Container fixed>
       <Grid container spacing={2}>
         <Grid item xs>
+            <Typography variant="h6">To-Do</Typography>
           {toDoTasks.map((task) => (
             <TaskCard {...task} />
           ))}
         </Grid>
         <Grid item xs>
+            <Typography variant="h6">In Progress</Typography>
           {inProgressTasks.map((task) => (
             <TaskCard {...task} />
           ))}
         </Grid>
         <Grid item xs>
+            <Typography variant="h6">Review</Typography>
           {reviewTasks.map((task) => (
             <TaskCard {...task} />
           ))}
         </Grid>
         <Grid item xs>
+            <Typography variant="h6">Done</Typography>
           {doneTasks.map((task) => (
             <TaskCard {...task} />
           ))}
