@@ -19,7 +19,7 @@ function TaskAdd({ defaults = {}, onSubmit, history }) {
     if (typeof onSubmit != 'function')
       return;
 
-    if (onSubmit(event, { title, status })) {
+    if (onSubmit(event, { title, status, type })) {
       setComplete(true);
     }
   };

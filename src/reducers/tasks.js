@@ -26,7 +26,10 @@ export default (state = initialState, action) => {
      */
     case 'ADD_TASK':
       const newTask = {
-        id: state.nextId, title: action.title, status: action.status
+        id     : state.nextId,
+        title  : action.title,
+        status : action.status,
+        type   : action.taskType
       };
       return Object.assign({}, state, {
         tasks  : [ ...state.tasks, newTask],
