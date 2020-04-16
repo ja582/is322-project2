@@ -1,0 +1,13 @@
+[
+  { "id": 0, "title": "Fix crayon bug", "status": "toDo", "type": "bug" },
+  { "id": 1, "title": "Add sorting table", "status": "inProgress", "type": "feature" },
+  { "id": 2, "title": "Add picture frame", "status": "inReview", "type": "feature" },
+  { "id": 3, "title": "Install candy", "status": "done", "type": "task" },
+  { "id": 4, "title": "Clean cat litter box", "status": "toDo", "type": "task" },
+  { "id": 5, "title": "Add API fetching", "status": "inProgress", "type": "feature" },
+  { "id": 6, "title": "Fix form styling", "status": "inReview", "type": "bug" },
+  { "id": 7, "title": "Destroy", "status": "done", "type": "task" },
+  { "id": 8, "title": "Stylize task grid", "status": "inProgress", "type": "task" },
+  { "id": 9, "title": "Rename column", "status": "inProgress", "type": "task" },
+  { "id": 10, "title": "Open chair", "status": "toDo", "type": "task" }
+]
