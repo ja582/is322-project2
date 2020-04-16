@@ -3,7 +3,7 @@ import { setTask } from '../actions';
 import TaskGrid    from '../components/TaskGrid';
 
 const mapStateToProps = ({ tasks }) => ({
-  tasks: tasks.items
+  tasks: tasks.tasks
 });
 
 const mapDispatchToProps = (dispatch) => ({
