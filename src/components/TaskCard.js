@@ -1,11 +1,12 @@
 import React from 'react';
+import { TaskStatuses, TaskTypes } from '../actions';
 
 import {
   Box, Button, Card, CardContent, CardActions
 } from '@material-ui/core';
 
 
-function TaskCard({ id, title, status, setTask }) {
+function TaskCard({ id, title, type, status, setTask }) {
   let actions;
 
   const toDoButton = (
@@ -21,7 +22,7 @@ function TaskCard({ id, title, status, setTask }) {
   );
 
   const inReviewButton = (
-    <Button color="primary" onClick={() => setTask({ id, status: 'inReview' })}>
+    <Button size="small" color="primary" onClick={() => setTask({ id, status: 'inReview' })}>
       Set In-Review
     </Button>
   );
@@ -57,7 +58,21 @@ function TaskCard({ id, title, status, setTask }) {
           {title}
         </CardContent>
         <CardContent>
-          {status}
+          <div>
+            <small>
+              <strong>ID: </strong> {id}
+            </small>
+          </div>
+          <div>
+            <small>
+              <strong>Type: </strong> {TaskTypes[type]}
+            </small>
+          </div>
+          <div>
+            <small>
+              <strong>Status:</strong> {TaskStatuses[status]}
+            </small>
+          </div>
         </CardContent>
         {actions &&
          <CardActions>
