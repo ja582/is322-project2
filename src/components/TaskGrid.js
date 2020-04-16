@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 
 
 function TaskGrid({ tasks, location: { state } }) {
+  const style = {textAlign: 'center'};
+
   const [open, setOpen] = React.useState(state ? state.submit : false);
 
   const toDoTasks       = tasks.filter((task) => task.status === 'toDo');
@@ -15,36 +17,37 @@ function TaskGrid({ tasks, location: { state } }) {
   const reviewTasks     = tasks.filter((task) => task.status === 'inReview');
   const doneTasks       = tasks.filter((task) => task.status === 'done');
 
+
   return (
     <main className="TaskGrid">
-        <Container fixed>
-      <Grid container spacing={2}>
-        <Grid item xs>
-            <Typography variant="h6">To-Do</Typography>
-          {toDoTasks.map((task) => (
-            <TaskCard {...task} />
-          ))}
+      <Container fixed style={{marginTop: '1rem'}}>
+        <Grid container spacing={2}>
+          <Grid item xs>
+            <Typography style={style} variant="h6">To-Do</Typography>
+            {toDoTasks.map((task) => (
+              <TaskCard {...task} />
+            ))}
+          </Grid>
+          <Grid item xs>
+            <Typography style={style} variant="h6">In Progress</Typography>
+            {inProgressTasks.map((task) => (
+              <TaskCard {...task} />
+            ))}
+          </Grid>
+          <Grid item xs>
+            <Typography style={style} variant="h6">Review</Typography>
+            {reviewTasks.map((task) => (
+              <TaskCard {...task} />
+            ))}
+          </Grid>
+          <Grid item xs>
+            <Typography style={style} variant="h6">Done</Typography>
+            {doneTasks.map((task) => (
+              <TaskCard {...task} />
+            ))}
+          </Grid>
         </Grid>
-        <Grid item xs>
-            <Typography variant="h6">In Progress</Typography>
-          {inProgressTasks.map((task) => (
-            <TaskCard {...task} />
-          ))}
-        </Grid>
-        <Grid item xs>
-            <Typography variant="h6">Review</Typography>
-          {reviewTasks.map((task) => (
-            <TaskCard {...task} />
-          ))}
-        </Grid>
-        <Grid item xs>
-            <Typography variant="h6">Done</Typography>
-          {doneTasks.map((task) => (
-            <TaskCard {...task} />
-          ))}
-        </Grid>
-      </Grid>
-        </Container>
+      </Container>
       <Notification
         text='New task added!'
         open={open}
