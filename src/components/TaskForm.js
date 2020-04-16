@@ -11,12 +11,25 @@ import {
   Close as CloseIcon
 } from '@material-ui/icons';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            width: '25ch',
+            divider: {
+                margin: theme.spacing(2, 0),
+            },
+        },
+    },
+}));
 
 function TaskAdd({ defaults = {}, onSubmit, history }) {
   const [title, setTitle]       = React.useState(defaults.title  || '');
   const [status, setStatus]     = React.useState(defaults.status || 'toDo');
   const [type, setType]         = React.useState(defaults.status || 'task');
   const [complete, setComplete] = React.useState(false);
+  const classes = useStyles();
 
   const clickAdd = (event) => {
     if (typeof onSubmit != 'function')
@@ -29,6 +42,7 @@ function TaskAdd({ defaults = {}, onSubmit, history }) {
 
   return (
     <Container fixed>
+        <form className={classes.root} noValidate autoComplete="off">
       { complete &&
         <Redirect to={{
           pathname : '/',
@@ -59,6 +73,7 @@ function TaskAdd({ defaults = {}, onSubmit, history }) {
       <div>
         <Button onClick={(e) => clickAdd(e)}>Add Task</Button>
       </div>
+        </form>
     </Container>
   );
 }
