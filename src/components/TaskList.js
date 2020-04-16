@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import * as PropTypes from "prop-types";
+import Typography from '@material-ui/core/Typography';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -41,6 +42,7 @@ const headCells = [
     {id: 'id', numeric: true, label: 'ID Number'},
     {id: 'name', numeric: false, label: 'Title'},
     {id: 'status', numeric: false, label: 'Status'},
+    {id: 'type', numeric: false, label: 'Type'},
 ];
 
 function Sorter(props) {
@@ -107,7 +109,6 @@ function TaskList({tasks}) {
 
         return (
             <main className="TaskList">
-                <span>Task List</span>
                 <TableContainer component={Paper}>
                     <Table className={classes.table} aria-label="simple table">
                         <Sorter
@@ -126,6 +127,7 @@ function TaskList({tasks}) {
                                             <TableCell>{tasks.id}</TableCell>
                                             <TableCell>{tasks.title}</TableCell>
                                             <TableCell>{tasks.status}</TableCell>
+                                            <TableCell>{tasks.type}</TableCell>
                                         </TableRow>
                                     );
                                 })}
