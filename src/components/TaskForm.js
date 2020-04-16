@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {
             width: '25ch',
+            divider: {
+                margin: theme.spacing(2, 0),
+            },
         },
     },
 }));
