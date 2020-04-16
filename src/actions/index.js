@@ -5,6 +5,12 @@ export const TaskStatuses = {
   done       : 'Done',
 };
 
+export const TaskTypes = {
+  task    : 'Task',
+  feature : 'Feature',
+  bug     : 'Bug',
+};
+
 export const setTask = ({ id, status }) => ({
   type: 'SET_TASK', id, status
 });

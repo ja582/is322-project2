@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (event, { title, status }) => {
+  onSubmit: (event, { title, status, type }) => {
     event.preventDefault();
 
     if (typeof title != 'string' || typeof status != 'string')
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
     if (title.length <= 0)
       return false;
 
-    dispatch(addTask({ title: title.trim(), status }));
+    dispatch(addTask({ title: title.trim(), status, type }));
     return true;
   }
 });
